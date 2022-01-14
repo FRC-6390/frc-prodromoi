@@ -1,8 +1,8 @@
 {
-  "name": "io.cordova.hellocordova",
-  "displayName": "HelloCordova",
+  "name": "frc.hepheastus.prodromoi",
+  "displayName": "Prodromoi",
   "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "description": "The Hepheastus 6390 scouting app",
   "main": "index.js",
   "scripts": {
     "build:css": "tailwind build -i style.css -o www/css/style.css",
