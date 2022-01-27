@@ -37,30 +37,27 @@ async function write(fileName, data){
     })
 }
 
-async function request(endpoint, progressBar = null){
-    if(progressBar!=null)progressBar.style = "width: 5%"; 
+async function request(endpoint, progressBar){
     return new Promise((resolve, reject) => {
         let request = new XMLHttpRequest();
         let fileName = endpoint.replace(/[^a-z0-9]/ig, '') + ".json";
         if(progressBar!=null)progressBar.style = "width: 10%"; 
         read(fileName).then((data) => {if(window.navigator.onLine)sendRequest(data);else resolve(data)}).catch((reason) => reject(reason));
         function sendRequest(cache) {
-            if(progressBar!=null)progressBar.style = "width: 15"; 
+            if(progressBar!=null)progressBar.style = "width: 45%"; 
             if(debug)console.log('Cache is', cache);
             request.open('GET', basePath+endpoint, true);
             request.setRequestHeader('X-TBA-Auth-Key', authKey);
-            if(progressBar!=null)progressBar.style = "width: 20%"; 
+            if(progressBar!=null)progressBar.style = "width: 65%"; 
             if(cache != null) request.setRequestHeader('If-Modified-Since', cache['last-modified']);
-            if(progressBar!=null)progressBar.style = "width: 25%"; 
+            if(progressBar!=null)progressBar.style = "width: 85%"; 
             request.onload = function() {
-                if(progressBar!=null)progressBar.style = "width: 50%"; 
+                if(progressBar!=null)progressBar.style = "width: 100%"; 
                 if(debug)console.log('Status is', this.status);
                 switch (this.status) {
                     case 304:
-                        if(progressBar!=null)progressBar.style = "width: 100%"; 
                         return resolve(cache);
                     case 200:
-                        if(progressBar!=null)progressBar.style = "width: 100%"; 
                         let response = JSON.parse(this.response);
                         response['last-modified'] = request.getResponseHeader('Last-Modified');
                         return write(fileName, response).then(data => resolve(data)).catch((reason) => {console.log(reason); resolve(response)});
@@ -68,8 +65,8 @@ async function request(endpoint, progressBar = null){
                         return reject("API ERROR: " + this.status);
                 }
             };
-            if(progressBar!=null)progressBar.style = "width: 30%"; 
             request.send();
+            if(progressBar!=null)progressBar.style = "width: 35%"; 
         }
     })
 }
