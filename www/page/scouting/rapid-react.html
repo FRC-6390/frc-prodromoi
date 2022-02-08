@@ -53,9 +53,9 @@
          </button>
        </div>
      </div>
-       <div class="text-3xl text-gray-800 body-font">
+       <div class="relative text-3xl text-gray-800 body-font">
            <!-- Auto Section --> 
-         <section class="absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-wrap " id = "auto">
+         <section class="absolute items-center overflow-y-auto visible w-full overflow-x-none flex flex-wrap " id = "auto">
             <div class ="ml-3 mb-2 font-bold flex items-center rounded">
                 <label class="inline-flex items-center">
                     <span class="mr-4 text3-xl">Left Tarmac</span>
@@ -64,35 +64,35 @@
               </div> 
             <div class ="mb-2 font-bold flex items-center rounded">
                 <label class="ml-3 mr-3">Upper Hub</label>
-                <button onclick="btnAdd(UpperHubNum)" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+                <button onclick="btnAdd('UpperHubNum')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
                <label id="UpperHubNum" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-               <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+               <button onclick="btnSub('UpperHubNum')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
              </div>
              <div class ="mb-2 font-bold flex items-center rounded">
                 <label class="ml-3 mr-3">Lower Hub</label>
-                <button class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-               <label class = "bg-gray-200 py-5 px-10 text-center">0</label>
-               <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                <button onclick="btnAdd('LowerHubNum')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+               <label id="LowerHubNum" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+               <button onclick="btnSub('LowerHubNum')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
              </div>
          </section>
             <!-- Tele Op Section -->
-            <section class="absolute items-center overflow-y-auto relative invisible w-full overflow-x-none  flex flex-wrap " id = "TeleOp"> 
+            <section class="absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-wrap " id = "TeleOp"> 
                 
                 <div class ="mb-2 font-bold flex items-center rounded">
                     <label class="ml-3 mr-3">Upper Hub</label>
-                    <button class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-                   <label class = "bg-gray-200 py-5 px-10 text-center">0</label>
-                   <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                    <button onclick="btnAdd('UpperHubTel')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+                   <label id="UpperHubTel" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+                   <button onclick="btnSub('UpperHubTel')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
                  </div>
                  <div class ="mb-2 font-bold flex items-center rounded">
-                    <label class="ml-3 mr-3">Lower Hub TELE OP</label>
-                    <button class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-                   <label class = "bg-gray-200 py-5 px-10 text-center">0</label>
-                   <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                    <label id="LowerHubbTel" class="ml-3 mr-3">Lower Hub TELE OP</label>
+                    <button onclick="btnAdd('lowerHubTel')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+                   <label id="lowerHubTel" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+                   <button onclick="btnSub('lowerHubTel')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
                  </div>
              </section>
             <!-- End Game Section -->
-         <section class = "absolute items-center overflow-y-auto relative invisible w-full overflow-x-none  flex flex-wrap " id = "end">
+         <section class = "absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-wrap " id = "end">
            
           <div class ="mb-2 font-bold flex items-center rounded">
             <label class="ml-3 mr-3">AAAAAAAAAAAAAA</label>
@@ -108,7 +108,7 @@
          </div>
          </section>
             <!-- Sumbit Section -->
-         <section  class="absolute items-center overflow-y-auto relative invisible w-full overflow-x-none  flex flex-wrap " id = "submit">
+         <section  class="absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-wrap " id = "submit">
           
           <div class ="mb-2 font-bold flex items-center rounded">
             <label class="ml-3 mr-3">UBBBBBBBBB</label>
@@ -123,44 +123,46 @@
            <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
          </div>
          </section>
+        
        </div>
-       <!-- Fouls -->
-       <section class="m-8 py-8 text-3xl text-gray-800 body-font relative border-t-2 flex-wrap">
-        <div class ="mb-2 font-bold flex items-center rounded">
-            <label class="ml-3 mr-20">Foul</label>
-            <button class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-           <label class = "bg-gray-200 py-5 px-10 text-center">0</label>
-           <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
-         </div>
-         <div class ="mb-2 font-bold flex items-center rounded">
-            <label class="ml-3 mr-3">Tech Foul</label>
-            <button class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-           <label class = "bg-gray-200 py-5 px-10 text-center">0</label>
-           <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
-         </div>
-         <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-            <label class="inline-flex items-center">
-                <span class="mr-4 text3-xl">Yellow Card</span>
-              <input type="checkbox" class="form-checkbox h-12 w-12">
-            </label>
-          </div> 
-          <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-            <label class="inline-flex items-center">
-                <span class="mr-14 text3-xl">Red Card</span>
-              <input type="checkbox" class="form-checkbox h-12 w-12">
-            </label>
-          </div> 
-          <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-            <label class="inline-flex items-center">
-                <span class="mr-16 text3-xl">Disabled</span>
-              <input type="checkbox" class="form-checkbox h-12 w-12">
-            </label>
-          </div> 
-          <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-            <label class="inline-flex items-center">
-                <span class="mr-6 text3-xl">Disqualifed</span>
-              <input type="checkbox" class="form-checkbox text-pink-600 h-12 w-12">
-            </label>
-          </div> 
-       </section>
+         <!-- Fouls -->
+         <section class="m-20 text-3xl text-gray-800 body-font relative border-t-2 flex-wrap">
+          <div class ="mb-2 font-bold flex items-center rounded">
+              <label class="ml-3 mr-20">Foul</label>
+              <button onclick="btnAdd('foul')"  class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+             <label id="foul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+             <button onclick="btnSub('foul')"  class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+           </div>
+           <div class ="mb-2 font-bold flex items-center rounded">
+              <label class="ml-3 mr-3">Tech Foul</label>
+              <button onclick="btnAdd('TechFoul')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+             <label id ="TechFoul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+             <button onclick="btnSub('TechFoul')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+           </div>
+           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+              <label class="inline-flex items-center">
+                  <span class="mr-4 text3-xl">Yellow Card</span>
+                <input type="checkbox" class="form-checkbox h-12 w-12">
+              </label>
+            </div> 
+            <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+              <label class="inline-flex items-center">
+                  <span class="mr-14 text3-xl">Red Card</span>
+                <input type="checkbox" class="form-checkbox h-12 w-12">
+              </label>
+            </div> 
+            <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+              <label class="inline-flex items-center">
+                  <span class="mr-16 text3-xl">Disabled</span>
+                <input type="checkbox" class="form-checkbox h-12 w-12">
+              </label>
+            </div> 
+            <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+              <label class="inline-flex items-center">
+                  <span class="mr-6 text3-xl">Disqualifed</span>
+                <input type="checkbox" class="form-checkbox text-pink-600 h-12 w-12">
+              </label>
+            </div> 
+         </section>
+      
    </section>
