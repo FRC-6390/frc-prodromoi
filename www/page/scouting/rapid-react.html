@@ -1,6 +1,4 @@
-<script src="/www/js/scouting/rapid-react.js">
-
-</script>
+<script src="/www/js/scouting/rapid-react.js"></script>
 <section class="w-full text-white-600 body-font">
     
     <div class = "mt-5 flex justify-center items-center w-full">   
@@ -32,8 +30,8 @@
        </select>
    </div>
    
-     <div class="container px-5 mx-auto flex flex-wrap flex-col">
-       <div class="flex mx-auto flex-wrap mb-20 ">
+     <div class="container mx-auto flex flex-wrap flex-col">
+       <div class="flex mx-auto flex-wrap mb-10 ">
          <button id="autoTab" onclick="switchTab('auto');" class="sm:px-12 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-800 text-gray-800 tracking-wider rounded-t">
            <svg class = "mr-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-server"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
            AUTO
@@ -53,9 +51,9 @@
          </button>
        </div>
      </div>
-       <div class="relative text-3xl text-gray-800 body-font">
+       <div class="relative w-full justify-center items-center text-3xl text-gray-800 body-font">
            <!-- Auto Section --> 
-         <section class="absolute items-center overflow-y-auto visible w-full overflow-x-none flex flex-wrap " id = "auto">
+         <section class="absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-col " id = "auto">
           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-3 text3-xl">Left Tarmac</span>
@@ -89,7 +87,7 @@
            
          </section>
             <!-- Tele Op Section -->
-            <section class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-wrap " id = "tele"> 
+            <section class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-col " id = "tele"> 
                 
                 <div class ="mb-2 font-bold flex items-center rounded">
                     <label class="ml-3 mr-3">Upper Hub</label>
@@ -105,7 +103,7 @@
                  </div>
              </section>
             <!-- End Game Section -->
-         <section class = "absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-wrap " id = "end">
+         <section class = "absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-col " id = "end">
            
           <div class ="mb-2 font-bold flex items-center rounded">
             <label class="ml-3 mr-3">AAAAAAAAAAAAAA</label>
@@ -121,7 +119,7 @@
          </div>
          </section>
             <!-- Sumbit Section -->
-         <section  class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-wrap " id = "submit">
+         <section  class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-col " id = "submit">
           
           <div class ="mb-2 font-bold flex items-center rounded">
             <label class="ml-3 mr-3">UBBBBBBBBB</label>
@@ -134,48 +132,48 @@
             <button class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
            <label class = "bg-gray-200 py-5 px-10 text-center">0</label>
            <button class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
-         </div>
-         </section>
-        
+         </div>    
        </div>
-         <!-- Fouls -->
-         <section class="m-20 text-3xl text-gray-800 body-font relative border-t-2 flex-wrap">
-          <div class ="mb-2 font-bold flex items-center rounded">
-              <label class="ml-3 mr-20">Foul</label>
-              <button onclick="btnAdd('foul')"  class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-             <label id="foul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-             <button onclick="btnSub('foul')"  class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
-           </div>
-           <div class ="mb-2 font-bold flex items-center rounded">
-              <label class="ml-3 mr-3">Tech Foul</label>
-              <button onclick="btnAdd('TechFoul')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-             <label id ="TechFoul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-             <button onclick="btnSub('TechFoul')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
-           </div>
-           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-              <label class="inline-flex items-center">
-                  <span class="mr-4 text3-xl">Yellow Card</span>
-                <input type="checkbox" class="form-checkbox h-12 w-12">
-              </label>
-            </div> 
-            <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-              <label class="inline-flex items-center">
-                  <span class="mr-14 text3-xl">Red Card</span>
-                <input type="checkbox" class="form-checkbox h-12 w-12">
-              </label>
-            </div> 
-            <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-              <label class="inline-flex items-center">
-                  <span class="mr-16 text3-xl">Disabled</span>
-                <input type="checkbox" class="form-checkbox h-12 w-12">
-              </label>
-            </div> 
-            <div class ="ml-3 mb-2 font-bold flex items-center rounded">
-              <label class="inline-flex items-center">
-                  <span class="mr-6 text3-xl">Disqualifed</span>
-                <input type="checkbox" class="form-checkbox text-pink-600 h-12 w-12">
-              </label>
-            </div> 
-         </section>
+        <!-- Fouls -->
+        <div id="foulSpacer" /></div>
+      </section>
+      <section class="py-10 m-20 text-3xl text-gray-800 body-font items-center relative border-t-2 flex flex-col" id="foul">
+        <div class ="mb-2 font-bold flex items-center rounded">
+            <label class="ml-3 mr-20">Foul</label>
+            <button onclick="btnAdd('foul')"  class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+          <label id="foul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+          <button onclick="btnSub('foul')"  class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+        </div>
+        <div class ="mb-2 font-bold flex items-center rounded">
+            <label class="ml-3 mr-3">Tech Foul</label>
+            <button onclick="btnAdd('TechFoul')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+          <label id ="TechFoul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+          <button onclick="btnSub('TechFoul')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+        </div>
+        <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+            <label class="inline-flex items-center">
+                <span class="mr-4 text3-xl">Yellow Card</span>
+              <input type="checkbox" class="form-checkbox h-12 w-12">
+            </label>
+          </div> 
+          <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+            <label class="inline-flex items-center">
+                <span class="mr-14 text3-xl">Red Card</span>
+              <input type="checkbox" class="form-checkbox h-12 w-12">
+            </label>
+          </div> 
+          <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+            <label class="inline-flex items-center">
+                <span class="mr-16 text3-xl">Disabled</span>
+              <input type="checkbox" class="form-checkbox h-12 w-12">
+            </label>
+          </div> 
+          <div class ="ml-3 mb-2 font-bold flex items-center rounded">
+            <label class="inline-flex items-center">
+                <span class="mr-6 text3-xl">Disqualifed</span>
+              <input type="checkbox" class="form-checkbox text-pink-600 h-12 w-12">
+            </label>
+          </div> 
+      </section>
       
    </section>
