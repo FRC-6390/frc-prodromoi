@@ -9,13 +9,13 @@ function switchPage(page, directory){
     //update to new page state
     if(CurrentDirectory.page == newDirectory.page) {
         $('#page').load(`../page/${page}`);
-        console.log("1")
+        //console.log("1")
     }else if(PreviousPageState[newDirectory.directory] != null && newDirectory.directory != CurrentDirectory.directory){
             document.getElementById("page").innerHTML = PreviousPageState[newDirectory.directory];
-            console.log("2")
+           // console.log("2")
         }else{
             $('#page').load(`../page/${newDirectory.page}`);
-            console.log("3")
+           // console.log("3")
         }
     CurrentDirectory = newDirectory;
 }

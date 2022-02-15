@@ -39,3 +39,10 @@ function switchTab(sectionId){
     console.log(section.offsetHeight)
 }   
 
+function checkPressed(id){
+    let checkbox = document.getElementById(id);
+    let html = checkbox.outerHTML;
+    if(html.includes("checked"))html = html.replace(`checked="">`,">");
+    else html = html.replace(">","checked>");
+    checkbox.outerHTML = html;
+}
