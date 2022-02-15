@@ -4,29 +4,29 @@
     <div class = "mt-5 flex justify-center items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-700">Match Type</label>
    
-       <select class="rounded " id="match">
-           <option value="p">Practice</option>
-           <option value="q">Qualifier</option>
-           <option value="qf">Quater Final</option>
-           <option value="sf">Semi Final</option>
-           <option value="f">Final</option>
+       <select onchange="selectChange('MatchType')" class="rounded " id="MatchType">
+           <option value="Practice">Practice</option>
+           <option value="Qualifier">Qualifier</option>
+           <option value="Quater Final">Quater Final</option>
+           <option value="Semi Final">Semi Final</option>
+           <option value="Final">Final</option>
        </select>
-       <input type="number" class = "w-12 ml-4 text-center rounded" placeholder="0" id ="matchNumber">
+       <input onchange="numberInputChange('MatchNumber')" type="number" class = "w-12 ml-4 text-center rounded" placeholder="0" id ="MatchNumber">
    </div>
    
    <div class = "mt-5 flex justify-center items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-700">Team #</label>
    
-       <input type="number" class = "rounded" placeholder="6390" id ="team">
+       <input type="number" onchange="numberInputChange('TeamNumber')" class = "rounded" placeholder="6390" id ="TeamNumber">
       </input>
    </div>
    
    <div class = "mt-5 flex justify-center items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-700">Alliance</label>
    
-       <select class="rounded " id="alliance">
-           <option value="r">Red</option>
-           <option value="b">Blue</option>
+       <select onchange="selectChange('TeamColour')" class="rounded " id="TeamColour">
+           <option value="Red">Red</option>
+           <option value="Blue">Blue</option>
        </select>
    </div>
    
@@ -57,32 +57,32 @@
           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-3 text3-xl">Left Tarmac</span>
-              <input id="AutoLeftTarmacCheckBox" type="checkbox" class="form-checkbox h-12 w-12">
+              <input id="AutoLeftTarmac" onchange="checkPressed('AutoLeftTarmac')" type="checkbox" class="form-checkbox h-12 w-12">
             </label>
           </div> 
             <div class ="ml-3 mb-2 font-bold flex items-center rounded">
                 <label class="inline-flex items-center">
                     <span class="mr-3 text3-xl">Quintet</span>
-                  <input id="AutoLeftTarmacCheckBox" type="checkbox" class="form-checkbox h-12 w-12">
+                  <input id="AutoQuintet" onchange="checkPressed('AutoQuintet')" type="checkbox" class="form-checkbox h-12 w-12">
                 </label>
               </div>
                 <div class ="ml-3 mb-2 font-bold flex items-center rounded">
               <label class="inline-flex items-center">
                   <span class="mr-3 text3-xl">Human scored</span>
-                <input id="AutoLeftTarmacCheckBox" type="checkbox" class="form-checkbox h-12 w-12">
+                <input id="AutoHumanScored" onchange="checkPressed('AutoHumanScored')" type="checkbox" class="form-checkbox h-12 w-12">
               </label>
             </div>  
             <div class ="mb-2 font-bold flex items-center rounded">
                 <label class="ml-2 mr-3">Upper Hub</label>
-                <button onclick="btnAdd('UpperHubNum')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-               <label id="UpperHubNum" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-               <button onclick="btnSub('UpperHubNum')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                <button onclick="btnAdd('AutoUpperHub')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+               <label id="AutoUpperHub" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+               <button onclick="btnSub('AutoUpperHub')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
              </div>
              <div class ="mb-2 font-bold flex items-center rounded">
                 <label class="ml-2 mr-3">Lower Hub</label>
-                <button onclick="btnAdd('LowerHubNum')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-               <label id="LowerHubNum" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-               <button onclick="btnSub('LowerHubNum')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                <button onclick="btnAdd('AutoLowerHub')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+               <label id="AutoLowerHub" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+               <button onclick="btnSub('AutoLowerHub')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
              </div>
            
          </section>
@@ -91,45 +91,91 @@
                 
                 <div class ="mb-2 font-bold flex items-center rounded">
                     <label class="ml-3 mr-3">Upper Hub</label>
-                    <button onclick="btnAdd('UpperHubTel')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-                   <label id="UpperHubTel" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-                   <button onclick="btnSub('UpperHubTel')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                    <button onclick="btnAdd('TeleUpperHub')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+                   <label id="TeleUpperHub" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+                   <button onclick="btnSub('TeleUpperHub')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
                  </div>
                  <div class ="mb-2 font-bold flex items-center rounded">
-                    <label id="LowerHubbTel" class="ml-3 mr-3">Lower Hub</label>
-                    <button onclick="btnAdd('lowerHubTel')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-                   <label id="lowerHubTel" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-                   <button onclick="btnSub('lowerHubTel')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+                    <label class="ml-3 mr-3">Lower Hub</label>
+                    <button onclick="btnAdd('TeleLowerHub')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+                   <label id="TeleLowerHub" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+                   <button onclick="btnSub('TeleLowerHub')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
                  </div>
              </section>
             <!-- End Game Section -->
          <section class = "absolute items-center overflow-y-none invisible w-full overflow-x-none  flex flex-col " id = "end">
            
           <div class = "mt-5 flex justify-center items-center w-full">   
-            <label class= "mr-2 text-center font-bold text-gray-800">Ladder climb</label>
+            <label class= "mr-2 text-center font-bold text-gray-800">Hanger Rung</label>
         
-            <select class="rounded " id="match">
-                <option value="tr">Traversal Rung</option>
-                <option value="h">High</option>
-                <option value="L">Mid</option>
-                <option value="">Low</option>
-                <option value="n">No Climb</option>
+            <select onchange="selectChange('EndgameHangerRung')" class="rounded " id="EndgameHangerRung">
+              <option value="No Climb">No Climb</option>
+                <option value="Traversal Rung">Traversal Rung</option>
+                <option value="High Rung">High Rung</option>
+                <option value="Mid Rung">Mid Rung</option>
+                <option value="Low Rung">Low Rung</option>
             </select>
         </div>
+        <div class = "mt-5 flex justify-center items-center w-full">   
+          <label class= "mr-2 text-center font-bold text-gray-800">Result</label>
+      
+          <select onchange="selectChange('EndgameResult')"class="rounded " id="EndgameResult">
+              <option value="Win">Win</option>
+              <option value="Lose">Lose</option>
+              <option value="Tie">Tie</option>
+              <option value="Canceled">Canceled</option>
+          </select>
+      </div>
+          <div class = "mt-5 flex justify-center items-center w-full">   
+            <label class= "mr-2 text-center font-bold">Score</label>
+        
+            <input onchange="numberInputChange('EndgameScore')" type="number" class = "rounded w-16" placeholder="0" id ="EndgameScore">
+          </input>
+        </div>
+      </section>
             <!-- Sumbit Section -->
          <section  class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-col " id = "submit">
           
            <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Robot Match Overview</div>
-            <p class="text-gray-700 text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-              Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil. Lorem ipsum dolor sit amet, 
-              consectetur adipisicing elit. 
-              Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
-            </p>
+              <div class="text-gray-800">
+                <div class="grid grid-cols-2"> 
+                Match Type: <p class="text-gray-700 ml-2" id = "submitMatchType">Practice</p>
+                Match Number: <p class="text-gray-700 ml-2" id = "submitMatchNumber">0</p>
+                Team Number: <p class="text-gray-700 ml-2" id = "submitTeamNumber">0</p>
+                Team Colour: <p class="text-gray-700 ml-2" id = "submitTeamColour">Red</p>
+                </div>
+                <div class="font-bold text-5xl w-full border-b-2 py-2">Auto</div>
+                <div class="grid grid-cols-2"> 
+                Left Tarmac: <p class="text-gray-700 ml-2" id = "submitAutoLeftTarmac">false</p>
+                Quintet: <p class="text-gray-700 ml-2" id = "submitAutoQuintet">false</p>
+                Human Scored: <p class="text-gray-700 ml-2" id = "submitAutoHumanScored">false</p>
+                Upper Hub: <p class="text-gray-700 ml-2" id = "submitAutoUpperHub">0</p>
+                Lower Hub: <p class="text-gray-700 ml-2" id = "submitAutoLowerHub">0</p>
+                </div>
+                <div class="font-bold text-5xl w-full border-b-2 py-2">Tele</div>
+                <div class="grid grid-cols-2"> 
+                Upper Hub: <p class="text-gray-700 ml-2" id = "submitTeleUpperHub">0</p>
+                Lower Hub: <p class="text-gray-700 ml-2" id = "submitTeleLowerHub">0</p>
+                </div>
+                <div class="font-bold text-5xl w-full border-b-2 py-2">End Game</div>
+                <div class="grid grid-cols-2"> 
+                Hanger Rung: <p class="text-gray-700 ml-2" id = "submitEndgameHangerRung">No Climb</p>
+                Result: <p class="text-gray-700 ml-2" id = "submitEndgameResult"> Win</p>
+                Score: <p class="text-gray-700 ml-2" id = "submitEndgameScore">0</p>
+                </div>
+                <div class="font-bold text-5xl w-full border-b-2 py-2">Other</div>
+                <div class="grid grid-cols-2"> 
+                Fouls: <p class="text-gray-700 ml-2" id = "submitOtherFouls">0</p>
+                Tech Fouls: <p class="text-gray-700 ml-2" id = "submitOtherTechFouls">0</p>
+                Yellow Card: <p class="text-gray-700 ml-2" id = "submitOtherYellowCard">false</p>
+                Red Card: <p class="text-gray-700 ml-2" id = "submitOtherRedCard">false</p>
+                Disabled: <p class="text-gray-700 ml-2" id = "submitOtherDisabled">false</p>
+                Disqualifed: <p class="text-gray-700 ml-2" id = "submitOtherDisqualifed">false</p>
+                </div>
+              </div>
           </div>
-         <div class ="mb-2 font-bold flex items-center rounded">
-            <button class="font-extrabold bg-gray-300 rounded-lg py-5 px-5">Submit</button>
+         <div class ="mt-4 font-bold flex items-center rounded">
+            <button onclick="submit();" class="font-extrabold bg-gray-300 rounded-lg py-5 px-5">Submit</button>
          </div>    
        </div>
         <!-- Fouls -->
@@ -138,38 +184,38 @@
       <section class="py-10 m-20 text-3xl text-gray-800 body-font items-center relative border-t-2 flex flex-col" id="foul">
         <div class ="mb-2 font-bold flex items-center rounded">
             <label class="ml-3 mr-20">Foul</label>
-            <button onclick="btnAdd('FoulButton')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-          <label id="FoulButton" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-          <button onclick="btnSub('FoulButton')"  class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+            <button onclick="btnAdd('OtherFouls')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+          <label id="OtherFouls" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+          <button onclick="btnSub('OtherFouls')"  class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
         </div>
         <div class ="mb-2 font-bold flex items-center rounded">
             <label class="ml-3 mr-3">Tech Foul</label>
-            <button onclick="btnAdd('TechFoul')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
-          <label id ="TechFoul" class = "bg-gray-200 py-5 px-10 text-center">0</label>
-          <button onclick="btnSub('TechFoul')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
+            <button onclick="btnAdd('OtherTechFouls')" class="font-extrabold bg-gray-300 rounded-l-lg py-5 px-5">+</button>
+          <label id ="OtherTechFouls" class = "bg-gray-200 py-5 px-10 text-center">0</label>
+          <button onclick="btnSub('OtherTechFouls')" class ="bg-gray-300 font-extrabold rounded-r-lg py-5 px-5">-</button>
         </div>
         <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-4 text3-xl">Yellow Card</span>
-              <input id="yellowcardCheckbox" onchange="checkPressed('yellowcardCheckbox') type="checkbox" class="form-checkbox h-12 w-12">
+              <input id="OtherYellowCard" onchange="checkPressed('OtherYellowCard')" type="checkbox" class="form-checkbox h-12 w-12">
             </label>
           </div> 
           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-14 text3-xl">Red Card</span>
-              <input id="RedCardCheckBox" onchange="checkPressed('RedCardCheckBox') type="checkbox" class="form-checkbox h-12 w-12">
+              <input id="OtherRedCard" onchange="checkPressed('OtherRedCard')" type="checkbox" class="form-checkbox h-12 w-12">
             </label>
           </div> 
           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-16 text3-xl">Disabled</span>
-              <input id="disabledCheckbox" onchange="checkPressed('disabledCheckbox') type="checkbox" class="form-checkbox h-12 w-12">
+              <input id="OtherDisabled" onchange="checkPressed('OtherDisabled')" type="checkbox" class="form-checkbox h-12 w-12">
             </label>
           </div> 
           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-6 text3-xl">Disqualifed</span>
-              <input id="disqualifedCheckbox" onchange="checkPressed('disqualifedCheckbox')" type="checkbox" class="form-checkbox text-pink-600 h-12 w-12" >
+              <input id="OtherDisqualifed" onchange="checkPressed('OtherDisqualifed')" type="checkbox" class="form-checkbox text-pink-600 h-12 w-12" >
             </label>
           </div> 
       </section>

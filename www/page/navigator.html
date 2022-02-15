@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Prodromoi</title>
     <link rel="stylesheet" href="../../www/css/style.css"></link>
+    <script src="../cordova.js"></script>
     <script src="../js/jquery.js"></script> 
+    <script src="../js/files/files.js"></script> 
     <script src="../js/nav.js"></script> 
     <script> 
     $(function(){
@@ -32,7 +34,7 @@
             </li>
     
             <li class="hover:text-blue-500 outline-none">
-                <a onclick="analysis();" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <a onclick="switchPage('analysis.html', 'analysis')" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
