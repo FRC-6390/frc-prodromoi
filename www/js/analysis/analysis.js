@@ -5,10 +5,19 @@
 // </div>`
 
 document.addEventListener('load',init()) 
+
+var inp = readDirectory("matches")
 function init(){
-    readDirectory("matches")
+   var inp = readDirectory("matches")
+   return inp;
 }
 
 function loadFeed() {
 
+}
+console.log(inp); 
+//inp.files.length;
+for (var i = 0; i < inp.length; i++) {
+    let file = inp.files[i];
+    
 }
