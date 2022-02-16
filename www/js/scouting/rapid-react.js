@@ -89,6 +89,6 @@ function submit() {
         } 
     }
     let fileName = `${values["Match_Type"]} ${values["Match_Number"]}: ${values["Team_Number"]}, ${values["End_Game"]["Result"]}`;
-    write("Matches/"+fileName, JSON.parse(JSON.stringify(values)));
+    write(fileName, JSON.parse(JSON.stringify(values)));
     switchPage('../page/scouting.html', 'scouting')
 }
