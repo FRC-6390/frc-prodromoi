@@ -6,7 +6,7 @@ async function request(endpoint, progressBar){
         let request = new XMLHttpRequest();
         let fileName = endpoint.replace(/[^a-z0-9]/ig, '') + ".json";
         if(progressBar!=null)progressBar.style = "width: 10%"; 
-        read(fileName).then((data) => {if(window.navigator.onLine)sendRequest(data);else resolve(data)}).catch((reason) => reject(reason));
+        read("tba", fileName).then((data) => {if(window.navigator.onLine)sendRequest(data);else resolve(data)}).catch((reason) => reject(reason));
         function sendRequest(cache) {
             if(progressBar!=null)progressBar.style = "width: 45%"; 
             if(debug)console.log('Cache is', cache);
@@ -24,7 +24,7 @@ async function request(endpoint, progressBar){
                     case 200:
                         let response = JSON.parse(this.response);
                         response['last-modified'] = request.getResponseHeader('Last-Modified');
-                        return write(fileName, response).then(data => resolve(data)).catch((reason) => {console.log(reason); resolve(response)});
+                        return write("tba", fileName, response).then(data => resolve(data)).catch((reason) => {console.log(reason); resolve(response)});
                     default:
                         return reject("API ERROR: " + this.status);
                 }
