@@ -7,8 +7,8 @@
 document.addEventListener('load',init()) 
 function init(){
     readDirectory("matches")
-    console.log("analysis");
 }
 
 function loadFeed() {
+
 }
