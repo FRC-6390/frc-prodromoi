@@ -88,7 +88,7 @@ function submit() {
             Disqualifed:document.getElementById("submitOtherDisqualifed").innerHTML
         } 
     }
-    let fileName = `${values["Match_Type"]} ${values["Match_Number"]}: ${values["Team_Number"]}, ${values["End_Game"]["Result"]}`;
+    let fileName = `${values["Match_Type"]} - ${values["Match_Number"]}: Team ${values["Team_Number"]}, Result ${values["End_Game"]["Result"]}`;
     write("matches",fileName, JSON.parse(JSON.stringify(values)));
     switchPage('../page/scouting.html', 'scouting')
 }
