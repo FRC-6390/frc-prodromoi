@@ -1,5 +1,26 @@
 <script src="/www/js/scouting/rapid-react.js"></script>
-<section class="w-full text-white-600 body-font">
+<!-- <script type="module">
+  load();
+  document.getElementById('MatchType').addEventListener('change', selectChange('MatchType'));
+  document.getElementById('MatchNumber').addEventListener('change', numberInputChange('MatchNumber'));
+  document.getElementById('TeamNumber').addEventListener('change', numberInputChange('TeamNumber'));
+  document.getElementById('TeamColour').addEventListener('change', selectChange('TeamColour'));
+  document.getElementById('tele').addEventListener('click', switchTab('tele'));
+  document.getElementById('end').addEventListener('click', switchTab('end'));
+  document.getElementById('submit').addEventListener('click', switchTab('submit'));
+  document.getElementById('auto').addEventListener('click', switchTab('auto'));
+  document.getElementById('AutoLeftTarmac').addEventListener('change', checkPressed('AutoLeftTarmac'));
+  document.getElementById('AutoQuintet').addEventListener('change', checkPressed('AutoQuintet'));
+  document.getElementById('AutoHumanScored').addEventListener('change', checkPressed('AutoHumanScored'));
+  // document.getElementById('TeamColour').addEventListener('change', btnAdd('TeamColour'));
+  // document.getElementById('TeamColour').addEventListener('change', selectChange('TeamColour'));
+  // document.getElementById('TeamColour').addEventListener('change', btnAdd('TeamColour'));
+  // document.getElementById('TeamColour').addEventListener('change', selectChange('TeamColour'));
+  // document.getElementById('TeamColour').addEventListener('change', btnAdd('TeamColour'));
+  // document.getElementById('TeamColour').addEventListener('change', selectChange('TeamColour'));
+  // document.getElementById('TeamColour').addEventListener('change', btnAdd('TeamColour'));
+</script> -->
+<section onload="load();" class="w-full text-white-600 body-font">
     
     <div class = "mt-5 flex justify-center items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-700">Match Type</label>
@@ -119,7 +140,7 @@
         <div class = "mt-5 flex justify-center items-center w-full">   
           <label class= "mr-2 text-center font-bold text-gray-800">Result</label>
       
-          <select onchange="selectChange('EndgameResult')"class="rounded " id="EndgameResult">
+          <select onchange="selectChange('EndgameResult')"class="rounded" id="EndgameResult">
               <option value="Win">Win</option>
               <option value="Lose">Lose</option>
               <option value="Tie">Tie</option>
@@ -160,7 +181,7 @@
                 <div class="font-bold text-5xl w-full border-b-2 py-2">End Game</div>
                 <div class="grid grid-cols-2"> 
                 Hanger Rung: <p class="text-gray-700 ml-2" id = "submitEndgameHangerRung">No Climb</p>
-                Result: <p class="text-gray-700 ml-2" id = "submitEndgameResult"> Win</p>
+                Result: <p class="text-gray-700 ml-2" id = "submitEndgameResult">Win</p>
                 Score: <p class="text-gray-700 ml-2" id = "submitEndgameScore">0</p>
                 </div>
                 <div class="font-bold text-5xl w-full border-b-2 py-2">Other</div>

@@ -6,7 +6,7 @@ async function read(directory, fileName){
     return new Promise((resolve, reject) => {
         window.requestFileSystem(fileType, fileSize, successCallback, errorCallback);
         function successCallback(fs) {
-            fs.root.getDirectory(directory, {create:true, exclusive: false}, function(dir) {
+            fs.root.getDirectory(directory, {create:false, exclusive: false}, function(dir) {
                 dir.getFile(fileName, {create:true}, function(fileEntry) { 
                     fileEntry.file(function(file) {
                         var reader = new FileReader();

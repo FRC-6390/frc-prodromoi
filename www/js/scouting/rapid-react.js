@@ -1,10 +1,24 @@
 //UpperHubnum.innerText = UpperHubNumber;
 //console.log(TarmacD.checked);
 //var points = 0;
-document.addEventListener('load',init()) 
-function init(){
+
+// window.onerror = function(msg, url, linenumber) {
+//     alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+//     return true;
+// }
+
+//window.addEventListener('load',load()) 
+
+$(load);
+
+document.addEventListener("deviceready", function(){
+
+   alert("YES");
+}, false);
+
+function load(data = null){
     document.getElementById("foulSpacer").style.height = document.getElementById("auto").offsetHeight  + "px";
-    console.log(document.getElementById("auto").offsetHeight);
+    //alert("load");
 }
 
 function btnAdd(buttonId){ 
@@ -88,7 +102,7 @@ function submit() {
             Disqualifed:document.getElementById("submitOtherDisqualifed").innerHTML
         } 
     }
-    let fileName = `${values["Match_Type"]} - ${values["Match_Number"]}: Team ${values["Team_Number"]}, Result ${values["End_Game"]["Result"]}`;
+    let fileName = `${values["Match_Type"]} - ${values["Match_Number"]}: Team ${values["Team_Number"]}`;
     write("matches",fileName, JSON.parse(JSON.stringify(values)));
     switchPage('../page/scouting.html', 'scouting')
 }

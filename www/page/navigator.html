@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta charset="UTF-8">
     <title>Prodromoi</title>
     <link rel="stylesheet" href="../../www/css/style.css"></link>
-    <script src="../cordova.js"></script>
-    <script src="../js/jquery.js"></script> 
+    <script type="text/javascript" src="cordova.js"></script>    <script src="../js/jquery.js"></script> 
     <script src="../js/files/files.js"></script> 
     <script src="../js/nav.js"></script> 
+    <script src="../js/settings.js"></script> 
+    <script type="module" src="../js/database/database.js" ></script>
     <script> 
     $(function(){
       $("#page").load("../page/home.html"); 
@@ -42,7 +44,7 @@
             </li>
     
             <li class="hover:text-blue-500 outline-none">
-                <a onclick="calculate();"" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <a onclick="switchPage('calculate.html', 'calculate');"" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                 </svg>  
@@ -50,7 +52,7 @@
             </li>
     
             <li class="hover:text-blue-500 outline-none">
-                <a onclick="connection();" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <a onclick="switchPage('connection.html', 'connection');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
                 </svg>
@@ -59,7 +61,7 @@
             </ul>
     
             <div class="mt-auto h-16 flex items-center w-full hover:text-blue-500 outline-none">
-            <a onclick="settings();" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+            <a onclick="switchPage('settings.html', 'settings');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
                 <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="3"></circle>
                 <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>

@@ -1,7 +1,7 @@
-<script src="/www/js/scouting/rapid-react.js"></script>
+<script src="/www/js/analysis/analysisViewer.js"></script>
 <section class="w-full text-white-600 body-font">
     
-    <div class = "mt-5 flex justify-center items-center w-full">   
+    <!-- <div class = "mt-5 flex justify-center items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-700">Match Type</label>
    
        <select onchange="selectChange('MatchType')" class="rounded " id="MatchType">
@@ -29,7 +29,7 @@
            <option value="Blue">Blue</option>
        </select>
    </div>
-   
+    -->
      <div class="container mx-auto flex flex-wrap flex-col">
        <div class="flex mx-auto flex-wrap mb-10 ">
          <button id="autoTab" onclick="switchTab('auto');" class="sm:px-12 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none border-gray-800 text-gray-800 tracking-wider rounded-t">
@@ -53,7 +53,7 @@
      </div>
        <div class="relative w-full justify-center items-center text-3xl text-gray-800 body-font">
            <!-- Auto Section --> 
-         <section class="absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-col " id = "auto">
+         <section class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-col " id = "auto">
           <div class ="ml-3 mb-2 font-bold flex items-center rounded">
             <label class="inline-flex items-center">
                 <span class="mr-3 text3-xl">Left Tarmac</span>
@@ -134,7 +134,7 @@
         </div>
       </section>
             <!-- Sumbit Section -->
-         <section  class="absolute items-center overflow-y-auto invisible w-full overflow-x-none  flex flex-col " id = "submit">
+         <section  class="absolute items-center overflow-y-auto visible w-full overflow-x-none  flex flex-col " id = "submit">
           
            <div class="px-6 py-4">
               <div class="text-gray-800">
@@ -175,8 +175,8 @@
               </div>
           </div>
          <div class ="mt-4 font-bold flex items-center rounded">
-            <button onclick="submit();" class="font-extrabold bg-gray-300 rounded-lg py-5 px-5">Submit</button>
-         </div>    
+            <button onclick="submit();" class="font-extrabold bg-gray-300 rounded-lg py-5 px-5">Save</button>
+         </div> 
        </div>
         <!-- Fouls -->
         <div id="foulSpacer" /></div>

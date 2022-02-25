@@ -1,0 +1,18 @@
+<section class="text-gray-900 body-font">
+    <script src="../js/calculate.js"></script>
+    <div class = "mt-5 flex justify-center items-center w-full">   
+        <label class= "mr-2 text-center font-medium title-font text-gray-900">Filter</label>
+        <select onchange="filter()" class="rounded " id="matchType">
+            <option value="All">Overall</option>
+            <option value="Quater Final">Carry</option>
+            <option value="Final">Hanger Climb</option>
+            <option value="Final">Wins</option>
+            <option value="Practice">Auto - Upper Hub</option>
+            <option value="Qualifier">Auto - Lower Hub</option>
+            <option value="Semi Final">Tele - Upper Hub</option>
+            <option value="Semi Final">Tele - Lower Hub</option>
+        </select>
+        <input oninput="filter()" type="number" class = "w-16 ml-4 text-center rounded" placeholder="Team#" id ="teamNumber">
+    </div>
+    <ul id = "savedMatches"></ul>
+  </section>
