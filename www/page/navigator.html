@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
     <meta charset="UTF-8">
     <title>Prodromoi</title>
-    <link rel="stylesheet" href="../../www/css/style.css"></link>
-    <script type="text/javascript" src="cordova.js"></script>    <script src="../js/jquery.js"></script> 
+    <link rel="stylesheet" href="../css/style.css"></link>
+    <script src="../cordova.js"></script>    
+    <script src="../js/jquery.js"></script> 
     <script src="../js/files/files.js"></script> 
     <script src="../js/nav.js"></script> 
     <script src="../js/settings.js"></script> 
+    <script src="../js/network/network.js"></script> 
     <script type="module" src="../js/database/database.js" ></script>
     <script> 
     $(function(){
@@ -25,7 +26,13 @@
                 </svg>
             </a>
             </div>
-    
+            <div class="hover:text-blue-500 outline-none">
+                <a onclick="switchPage('predictions.html', 'predictions');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                </a>
+            </div>
             <ul>
             <li class="hover:text-blue-500 outline-none">
                 <a onclick="switchPage('scouting.html', 'scouting');"class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">

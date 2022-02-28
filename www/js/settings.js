@@ -1,7 +1,9 @@
+
 $(load)
+
 function load() {
-    console.log('read')
     read('settings', 'settings').then(data => {
+        console.log(settings);
         if(data){
             document.getElementById('DeviceName').value = data['deviceName']
             document.getElementById('Eventkey').value = data['eventKey'];

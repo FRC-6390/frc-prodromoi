@@ -11,14 +11,8 @@
 
 $(load);
 
-document.addEventListener("deviceready", function(){
-
-   alert("YES");
-}, false);
-
-function load(data = null){
+function load(){
     document.getElementById("foulSpacer").style.height = document.getElementById("auto").offsetHeight  + "px";
-    //alert("load");
 }
 
 function btnAdd(buttonId){ 
@@ -102,7 +96,18 @@ function submit() {
             Disqualifed:document.getElementById("submitOtherDisqualifed").innerHTML
         } 
     }
-    let fileName = `${values["Match_Type"]} - ${values["Match_Number"]}: Team ${values["Team_Number"]}`;
-    write("matches",fileName, JSON.parse(JSON.stringify(values)));
+    let fileName = `${values["Match_Type"]} - ${values["Match_Number"]}| Team ${values["Team_Number"]}`;
+    write("matches",fileName, JSON.parse(JSON.stringify(values))).then(addToIndex(values["Team_Number"]))
     switchPage('../page/scouting.html', 'scouting')
+}
+
+function addToIndex(team) {
+    read('calculate', 'index').then(function(index) {
+        console.log(index);
+        index = JSON.parse(index);
+        if(!index['Teams'].includes(team)){
+            index['Teams'].push(team);
+            write('calculate', 'index', index);
+        }
+    })
 }

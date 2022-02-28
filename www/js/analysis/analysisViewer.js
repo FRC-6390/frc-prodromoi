@@ -6,11 +6,9 @@ $(load);
 function load(){
     switchTab("submit");
     document.getElementById("foulSpacer").style.height = document.getElementById("submit").offsetHeight  + "px";
-    
-    let data = localStorage.data;
-    if(data){
-        data = JSON.parse(data);
+    cacheRead().then(function(data) {
         console.log(data);
+        data = JSON.parse(data)
         document.getElementById("submitMatchType").innerHTML = data["Match_Type"];
         document.getElementById("submitMatchNumber").innerHTML = data["Match_Number"];
         document.getElementById("submitTeamNumber").innerHTML = data["Team_Number"];
@@ -32,7 +30,7 @@ function load(){
         document.getElementById("OtherDisabled").checked = data["Other"]["Disabled"] == "true" ? true : false
         document.getElementById("OtherDisqualifed").checked = data["Other"]["Disqualifed"] == "true" ? true : false
         refresh();
-    }
+    })
 }
 
 function btnAdd(buttonId){ 
