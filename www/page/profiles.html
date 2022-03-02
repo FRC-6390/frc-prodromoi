@@ -1,6 +1,6 @@
 
 
-
+<script src="../js/scouting/rapid-react.js"></script>
 
 <section onload="load();" class="w-full text-white-500 body-font">
 
@@ -8,6 +8,20 @@
             <label class="mr-2 text-center font-bold text-5xl text-gray-800" for="id_body">Pit Scouting</label>                   
                       </div>  
 
+
+                      <div class = "mt-5 flex justify-center items-center w-full"> 
+
+                        <label class= "mr-2 text-center font-bold text-gray-700"> </label>
+                    <!-- I know this is stupid but....shut up -->
+                    </div>
+
+                      <div class = "mt-5 flex justify-center items-center w-full">   
+                        <label class= "mr-2 text-center font-bold text-gray-700">Team #</label>
+                    
+                        <input type="number" onchange="numberInputChange('TeamNumber')" class = "rounded" placeholder="6390" id ="TeamNumber">
+                       </input>
+                    </div>
+                    
                       <div class = "mt-5 flex justify-center items-center w-full"> 
 
                         <label class= "mr-2 text-center font-bold text-gray-700"> </label>
@@ -41,7 +55,7 @@
    <div class = "mt-5 flex justify-center text-2xl items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-800">Ball rotation</label>
    
-       <input type="number" onchange="numberInputChange('TeamNumber')" class = "w-30 h-8 ml-4 text-center rounded" placeholder="5 seconds per rotation" id ="ballrotation">
+       <input type="string" onchange="numberInputChange('TeamNumber')" class = "w-30 h-10 ml-4 text-center rounded" placeholder="5 seconds per rotation" id ="ballrotation">
       </input>
 
 
@@ -52,18 +66,38 @@
        <label class= "mr-2 text-center font-bold text-gray-700"> </label>
    <!-- I know this is stupid but....shut up -->
    </div>
-   
+   <div class = "mt-5 flex justify-center text-2xl items-center w-full">   
+    <label class= "mr-2 text-center font-bold text-gray-800">Coding language</label>
+
+    <input type="string" onchange="numberInputChange('TeamNumber')" class = "w-30 h-10 ml-4 text-center rounded" placeholder="Java,c++ etc." id ="ballrotation">
+   </input>
+
+
+</div>
+  
+<div class = "mt-5 flex justify-center items-center w-full"> 
+
+    <label class= "mr-2 text-center font-bold text-gray-700"> </label>
+<!-- I know this is stupid but....shut up -->
+</div>
 
     <div class = "mt-5 flex justify-center text-3xl items-center w-full">
    <label class="mr-2 text-center font-bold text-gray-800" for="id_body">Additional notes</label>
 									
              </div>  
              <div class = "mt-5 flex justify-center items-center w-full">
-<textarea name="body" cols="32" rows="3" placeholder="500 characters max" class="p-2 rounded border border-gray-8 bg-white dark:border-gray-700 text-gray-600 dark:text-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-gray-400 text-sm h-auto" maxlength="500" required id="id_body">
+<textarea name="body" cols="32" rows="3" placeholder="1000 characters max" class="p-2 rounded border border-gray-8 bg-white dark:border-gray-700 text-gray-600 dark:text-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-gray-400 text-m h-auto" maxlength="1000" required id="id_body">
                                     </textarea>
 </div>
+<div class = "mt-5 flex justify-center items-center w-full"> 
 
+    <label class= "mr-2 text-center font-bold text-gray-700"> </label>
+<!-- I know this is stupid but....shut up -->
+</div>
 
+<div class ="mt-4 font-bold flex justify-center items-center rounded">
+    <button onclick="submit();" class="font-extrabold bg-gray-300 text-gray-800 rounded-lg py-5 px-10">Submit</button>
+ </div> 
     <!-- <div class = "mt-5 flex justify-center items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-800">Match Type</label>
    
