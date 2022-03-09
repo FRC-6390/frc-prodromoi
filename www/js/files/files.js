@@ -14,7 +14,7 @@ async function read(directory, fileName){
         cordova.file.dataDirectory 
         window.requestFileSystem(fileType, fileSize, successCallback, errorCallback);
         function successCallback(fs) {
-            fs.root.getDirectory(directory, {create:false, exclusive: false}, function(dir) {
+            fs.root.getDirectory(directory, {create:true, exclusive: false}, function(dir) {
                 dir.getFile(fileName, {create:true}, function(fileEntry) { 
                     fileEntry.file(function(file) {
                         var reader = new FileReader();
@@ -53,7 +53,8 @@ async function write(directory, fileName, data){
                     fileEntry.createWriter(function(fileWriter) {
                         fileWriter.onwriteend = function(e) {if(debug)console.log('Wrote to '+fileEntry.fullPath, JSON.stringify(data)    .length)};
                         fileWriter.onerror = function(e) {reject('Write to '+fileEntry.fullPath+' failed: ' + e.toString())};
-                        fileWriter.write(new Blob([JSON.stringify(data)], {type: 'text/plain'}));
+                        
+                        fileWriter.write(new Blob([JSON.stringify(data)], {exclusive: false, type: 'text/plain'}));
                         resolve(data);
                     }, errorCallback);
                 }, errorCallback);

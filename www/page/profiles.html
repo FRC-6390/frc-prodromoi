@@ -1,6 +1,4 @@
-
-
-<script src="../js/scouting/rapid-react.js"></script>
+<script src="../js/profiles.js"></script>
 
 <section onload="load();" class="w-full text-white-500 body-font">
 
@@ -18,7 +16,7 @@
                       <div class = "mt-5 flex justify-center items-center w-full">   
                         <label class= "mr-2 text-center font-bold text-gray-700">Team #</label>
                     
-                        <input type="number" onchange="numberInputChange('TeamNumber')" class = "rounded" placeholder="6390" id ="TeamNumber">
+                        <input type="number" class = "rounded" placeholder="6390" id ="team">
                        </input>
                     </div>
                     
@@ -31,7 +29,7 @@
 <div class = "mt-5 flex justify-center items-center w-full text-2xl">   
     <label class= "mr-2 text-center font-bold text-gray-800 ">Hanger Rung</label>
 
-    <select onchange="selectChange('EndgameHangerRung')" class="rounded " id="EndgameHangerRung">
+    <select class="rounded " id="hanger">
       <option value="No Climb">No Climb</option>
         <option value="Traversal Rung">Traversal Rung</option>
         <option value="High Rung">High Rung</option>
@@ -55,7 +53,7 @@
    <div class = "mt-5 flex justify-center text-2xl items-center w-full">   
        <label class= "mr-2 text-center font-bold text-gray-800">Ball rotation</label>
    
-       <input type="string" onchange="numberInputChange('TeamNumber')" class = "w-30 h-10 ml-4 text-center rounded" placeholder="5 seconds per rotation" id ="ballrotation">
+       <input type="string" class = "w-30 h-10 ml-4 text-center rounded" placeholder="Scoring Cylce" id ="cycles">
       </input>
 
 
@@ -69,7 +67,7 @@
    <div class = "mt-5 flex justify-center text-2xl items-center w-full">   
     <label class= "mr-2 text-center font-bold text-gray-800">Coding language</label>
 
-    <input type="string" onchange="numberInputChange('TeamNumber')" class = "w-30 h-10 ml-4 text-center rounded" placeholder="Java,c++ etc." id ="ballrotation">
+    <input type="string" class = "w-30 h-10 ml-4 text-center rounded" placeholder="Java,c++ etc." id ="coding">
    </input>
 
 
@@ -86,7 +84,7 @@
 									
              </div>  
              <div class = "mt-5 flex justify-center items-center w-full">
-<textarea name="body" cols="32" rows="3" placeholder="1000 characters max" class="p-2 rounded border border-gray-8 bg-white dark:border-gray-700 text-gray-600 dark:text-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-gray-400 text-m h-auto" maxlength="1000" required id="id_body">
+<textarea id="additional" name="body" cols="32" rows="3" placeholder="1000 characters max" class="p-2 rounded border border-gray-8 bg-white dark:border-gray-700 text-gray-600 dark:text-gray-800 focus:bg-white focus:outline-none focus:ring-2 focus:ring-teal-400 focus:border-transparent placeholder-gray-400 text-m h-auto" maxlength="1000" required id="id_body">
                                     </textarea>
 </div>
 <div class = "mt-5 flex justify-center items-center w-full"> 
