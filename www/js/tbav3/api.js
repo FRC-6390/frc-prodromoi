@@ -24,6 +24,7 @@ async function request(endpoint, progressBar){
                     case 200:
                         let response = JSON.parse(this.response);
                         response['last-modified'] = request.getResponseHeader('Last-Modified');
+                        console.log(response);
                         return write("tba", fileName, response).then(data => resolve(data)).catch((reason) => {console.log(reason); resolve(response)});
                     default:
                         return reject("API ERROR: " + this.status);

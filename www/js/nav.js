@@ -3,6 +3,7 @@ var PreviousPageState = new Object();
 
 document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
+        loadConfig();
         document.addEventListener("backbutton", function (e) {
             e.preventDefault();
         }, false );
