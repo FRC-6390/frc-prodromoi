@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "frc-prodromoi",
+    "slug": "frc-prodromoi",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
