@@ -1,0 +1,33 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    },
+    "cordova-plugin-browsersync-gen2": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    },
+    "cordova-plugin-spinner-dialog": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "frc.hepheastus.prodromoi"
+    }
+  },
+  "dependent_plugins": {}
+}

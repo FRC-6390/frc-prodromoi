@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="frc.hepheastus.prodromoi" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
+    <feature name="Notification">
+        <param name="android-package" value="org.apache.cordova.dialogs.Notification" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <allow-navigation href="cdvfile:*" />
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
+    <feature name="SpinnerDialog">
+        <param name="android-package" value="hu.dpal.phonegap.plugins.SpinnerDialog" />
+    </feature>
+    <feature name="Whitelist">
+        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>Prodromoi</name>
+    <description>
+        The Hepheastus 6390 scouting app
+    </description>
+    <author email="mathias@pepservices.com" href="https://www.hephaestus6390.com/">
+        Lead Developer       
+    </author>
+    <content src="browser-sync-start.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <resource-file src="res/mipmap-anydpi-v26/ic_launcher.xml" target="app/src/main/res/mipmap/ic_launcher.xml" />
+    <allow-intent href="market:*" />
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+        <application android:usesCleartextTraffic="true" />
+    </edit-config>
+    <icon background="res/icon/android/mipmap-mdpi/ic_launcher.png" density="mdpi" foreground="res/icon/android/mipmap-mdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-hdpi/ic_launcher.png" density="hdpi" foreground="res/icon/android/mipmap-hdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-xhdpi/ic_launcher.png" density="xhdpi" foreground="res/icon/android/mipmap-xhdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-xxhdpi/ic_launcher.png" density="xxhdpi" foreground="res/icon/android/mipmap-xxhdpi/ic_launcher_adaptive_fore.png" />
+    <icon background="res/icon/android/mipmap-xxxhdpi/ic_launcher.png" density="xxxhdpi" foreground="res/icon/android/mipmap-xxxhdpi/ic_launcher_adaptive_fore.png" />
+    <preference name="loglevel" value="DEBUG" />
+    <preference name="KeepRunning" value="true" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <allow-navigation href="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="*" />
+    <allow-navigation href="*" />
+</widget>

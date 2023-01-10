@@ -1,0 +1,35 @@
+{
+    "name": "cordova-plugin-browsersync-gen2",
+    "id": "cordova-plugin-browsersync-gen2",
+    "version": "1.1.7",
+    "description": "A fork of original Cordova Plugin to integrate browser-sync in the workflow",
+    "main": "lib/index.js",
+    "author": "Dimitris - Rafail Katsampas <katsampasdr@gmail.com>",
+    "license": "Apache-2.0",
+    "cordova": {
+        "id": "cordova-plugin-browsersync-gen2",
+        "platforms": [
+            "android",
+            "browser",
+            "ios"
+        ]
+    },
+    "keywords": [
+        "cordova",
+        "ecosystem:cordova",
+        "cordova-android",
+        "cordova-ios"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DimitrisRK/cordova-plugin-browsersync-gen2.git"
+    },
+    "dependencies": {
+        "browser-sync": "^2.26.0",
+        "cheerio": "^1.0.0-rc.2",
+        "csp-parse": "0.0.2",
+        "elementtree": "^0.1.6",
+        "glob": "^7.1.2",
+        "plist": "^3.0.0"
+    }
+}

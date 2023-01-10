@@ -1,0 +1,17 @@
+<section class="text-gray-900 body-font">
+    <script src="../js/analysis/analysis.js">
+    </script>
+    <div class = "mt-5 flex justify-center items-center w-full">   
+        <label class= "mr-2 text-center font-medium title-font text-gray-900">Filter</label>
+        <select onchange="filter()" class="rounded " id="matchType">
+            <option value="All">All</option>
+            <option value="Practice">Practice</option>
+            <option value="Qualifier">Qualifier</option>
+            <option value="Quater Final">Quater Final</option>
+            <option value="Semi Final">Semi Final</option>
+            <option value="Final">Final</option>
+        </select>
+        <input oninput="filter()" type="number" class = "w-16 ml-4 text-center rounded" placeholder="Team#" id ="teamNumber">
+    </div>
+    <ul id = "savedMatches"></ul>
+  </section>

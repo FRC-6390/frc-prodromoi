@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Prodromoi</title>
+    <link rel="stylesheet" href="../css/style.css"></link>
+    <script src="../cordova.js"></script>    
+    <script src="../js/jquery.js"></script> 
+    <script src="../js/files/files.js"></script> 
+    <script src="../js/nav.js"></script> 
+    <script src="../js/settings.js"></script> 
+    <script src="../js/network/network.js"></script> 
+    <script type="module" src="../js/database/database.js" ></script>
+    <script> 
+    $(function(){
+      $("#page").load("../page/home.html"); 
+    });
+    </script> 
+  </head>
+  <body id="content" class="h-screen w-screen flex bg-gray-500">
+    <aside id="nav" class="flex flex-col items-center bg-gray-800 text-white shadow h-full">
+        <div class="hover:text-blue-500 outline-none">
+            <a onclick="switchPage('home.html', 'home');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+            </a>
+            </div>
+            <!-- <div class="hover:text-blue-500 outline-none">
+                <a onclick="switchPage('profiles.html', 'profiles');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                </a>
+            </div> -->
+            <ul>
+            <li class="hover:text-blue-500 outline-none">
+                <a onclick="switchPage('scouting.html', 'scouting');"class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                </svg>
+                </a>
+            </li>
+    
+            <li class="hover:text-blue-500 outline-none">
+                <a onclick="switchPage('analysis.html', 'analysis')" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                </a>
+            </li>
+    
+            <li class="hover:text-blue-500 outline-none">
+                <a onclick="switchPage('calculate.html', 'calculate');"" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>  
+                </a>
+            </li>
+    
+            <li class="hover:text-blue-500 outline-none">
+                <a onclick="switchPage('connection.html', 'connection');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
+                </svg>
+                </a>
+            </li>
+            </ul>
+    
+            <div class="mt-auto h-16 flex items-center w-full hover:text-blue-500 outline-none">
+            <!-- <a onclick="switchPage('settings.html', 'settings');" class="h-16 px-6 flex flex justify-center items-center w-full focus:bg-gray-700">
+                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                </svg>
+            </a> -->
+            </div>
+    </aside>
+        <section id="page" class="text-gray-600 body-font overflow-x-none overflow-y-auto w-full">
+            </section>
+      <body>
+</html>
