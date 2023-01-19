@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, Button, Alert,  View } from 'react-native';
+import { StyleSheet, Text, Button, Alert,  View, Pressable } from 'react-native';
 import mainScreen from './js/MainScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -11,10 +11,12 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', /*justifyContent: 'space-between',*/ margin: '10', padding: '20'}}>
       <Text>Home Screen</Text>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Details')}
-      />
+     
+        <Pressable style={styles.button}   onPress={() => navigation.navigate('Details')}>
+        <Text style={styles.text}>{"Go to details"}</Text>
+      </Pressable>
+  
+  
        <Button
         title="Go to Teams"
         onPress={() => navigation.navigate('Team')}
@@ -62,5 +64,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#33BEFF',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    margin: 4,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: 'black',
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 1.5,
+    color: 'white',
   },
 });
