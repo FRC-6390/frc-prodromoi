@@ -2,40 +2,41 @@ import React, {useState} from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 
 
+var timepressed = 0;
 
 const Button1 = () => {
-  const [timesPressed, setTimesPressed] = useState(0);
-
-  let textLog = '';
-  if (timesPressed > 1) {
-    textLog = timesPressed + 'x onPress';
-  } else if (timesPressed > 0) {
-    textLog = 'onPress';
-  }
+ const [timesPressed, setTimesPressed] = useState(0);//Don't delete.
 
   return (
     <View style={styles.container}>
       <Pressable
         onPress={() => {
-          setTimesPressed(current => current + 1);
+          setTimesPressed(current => current + 1);//Don't delete. The counting system stops working if this line isn't here
+          timepressed=timepressed + 1;
         }}
         style={({pressed}) => [
           {
-            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+            backgroundColor: pressed ? 'rgb(10, 100, 25)' : 'white',
           },
           styles.wrapperCustom,
         ]}>
         {({pressed}) => (
-          <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+          <Text style={styles.text}>{pressed ? 'was pressed!' : 'Press Me'}</Text>
         )}
       </Pressable>
       <View style={styles.logBox}>
-        <Text testID="pressable_press_console">{textLog}</Text>
+        <Text>This is pressed {timepressed}</Text>
       </View>
     </View>
   );
 };
-
+/*
+function timeKeeper(T){
+return(
+T = T + 1
+);
+};
+*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
