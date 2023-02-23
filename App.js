@@ -1,12 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, Button, Alert,  View, Pressable } from 'react-native';
+import { StyleSheet, Text, Button, Alert,  View, Pressable, ScrollView } from 'react-native';
 import mainScreen from './Screens/Matches/MainScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 //import {Button1, navigatorScreen} from './Screens/Matches/Buttons';
 import {FlexDirectionBasics} from './Screens/Matches/MainScreen';
 import { Button1, navigatorScreen } from './Screens/Matches/Buttons';
+import { Hermes } from './Screens/Matches/ScreenChanger';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,36 +24,73 @@ function HomeScreen({ navigation }) {
         <Text style={styles.text}>{"Results"}</Text>
         </Pressable>
 
+        <Pressable style={styles.button} onPress={() => navigation.navigate('Screener')}>
+          <Text style={styles.text}>{"Save (WIP)"}</Text>
+
+          </Pressable>
+
       
     </View>
   );
 }
 
 
-//Testing Function
-function Teams({navigation}){
+function Matchselect({navigation}){
 return(
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-  <Text>Teams Screen</Text>
 
-  
-       <Pressable style={styles.button} onPress={() => navigation.push('Team')}>
-        <Text style={styles.text}>{"go to Teams2"}</Text>
+       <Pressable style={styles.button} onPress={() => navigation.push('auto')}>
+        <Text style={styles.text}>{"Auto"}</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => navigation.push('teleOp')}>
+        <Text style={styles.text}>{"TeleOp"}</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => navigation.push('endGame')}>
+        <Text style={styles.text}>{"EndGame"}</Text>
+        </Pressable>
+        <Pressable style={styles.button} onPress={() => navigation.push('Home')}>
+        <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
 
 </View>
 );
 }
-//*************************************************************************************************** */
 
+function Auto(){
+return(
+ 
+<View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+<Text>Test 
+</Text>
+</View>
+
+
+);
+}
+
+function Tele(){
+return(
+  <View>
+  
+  
+  </View>
+
+)
+}
+
+
+
+//export{Teams};
 export default function App() {
   return (
     <NavigationContainer>
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={HomeScreen} />
-    <Stack.Screen name="Team2" component={navigatorScreen}/>
+    <Stack.Screen name="Team2" component={Matchselect}/>
       <Stack.Screen name="Team" component={FlexDirectionBasics} />
-      <Stack.Screen name="Details"component={Button1}/>
+      <Stack.Screen name="auto"component={Auto}/>
+      <Stack.Screen name="teleOp"component={Tele}/>
+      <Stack.Screen name="endGame"component={placeholder}/>
     </Stack.Navigator>
   </NavigationContainer>
 

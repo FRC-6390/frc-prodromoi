@@ -6,6 +6,7 @@ import { ScreenStack } from 'react-native-screens';
 import App from '../../App';
 import { FlexDirectionBasics } from './MainScreen';
 
+
 var timepressed = 0;
 const Stack = createNativeStackNavigator();
 
