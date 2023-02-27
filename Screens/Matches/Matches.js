@@ -8,18 +8,40 @@ import App from '../../App';
 
 
 const Stack = App.Stack;
+var timepressed = 0;
 
-const Hermes = () => {
+const autoPoints = () => {
+  const [timesPressed, setTimesPressed] = useState(0);//Don't delete.
+
 return(
-    <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'center', margin: '10', padding: '20'}}>
-    <Text style={styles.text}>Testing</Text>
+    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', margin: '10', padding: '20'}}>
+ 
+      <Pressable
+        onPress={() => {
+          setTimesPressed(current => current + 1);//Don't delete. The counting system stops working if this line isn't here
+          timepressed=timepressed + 1;
+        }}
+        style={({pressed}) => [
+          {
+            backgroundColor: pressed ? 'rgb(214, 38, 11)' : 'D6260B',
+          },
+          styles.wrapperCustom,
+        ]}>
+        {({pressed}) => (
+          <Text style={styles.text}>{pressed ? 'Pressed' : 'Press me'}</Text>
+        )}
+      </Pressable>
+      <View style={styles.logBox}>
+        <Text>                </Text>
+      </View>
+
  </View>
 
 
 );
 
 }
-export{Hermes};
+export{autoPoints};
 
 const styles = StyleSheet.create({
     container: {
