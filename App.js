@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
-import { StyleSheet, Text, Button, Alert,  View, Pressable, ScrollView, Switch, TextInput } from 'react-native';
+import { StyleSheet, Text, Button, Alert,  View, Pressable, ScrollView, Switch, TextInput,SectionList } from 'react-native';
 import mainScreen from './Screens/Matches/MainScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -22,12 +22,14 @@ var tMidRung = 0;
 var tHighRung = 0;
 var Links = 0;
 var aCommunity = false;
+var tCommunity = false;
 var aDock = false;
 var aEngaged = false;
 var tDock = false;
 var tEngaged = false;
 var match = "Match type and #";
 var teamName = "Team Number/Name"
+var matchResult = "Match Result"
 
  
 function HomeScreen({ navigation }) {
@@ -182,7 +184,7 @@ function Auto({navigation}){
   <View style = {styles.btnBox}>
   <Pressable style={styles.button} onPress={() => {setIsEnabled(previousState => !previousState); aEngaged = !aEngaged}}>
    {({pressed}) => (
-          <Text style={styles.text}>{pressed ? '            ' : 'Robot Docked'}</Text>
+          <Text style={styles.text}>{pressed ? '            ' : 'Robot Engaged'}</Text>
         )}
   </Pressable>
 <Text>{aEngaged ? 'on': 'Off'}</Text>
@@ -297,17 +299,115 @@ function Tele({navigation}){
 //------------------------------------------------------------------------------------------------------------------------------
 
 function Endgame({navigation}){
+  let[autoScore, setAutoscore] = useState(0);
+  const [acommunity, setIsEnabled] = useState(false);
+  const [Values, onChangeText] = React.useState(matchResult);
+
   return(
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-   <Text>
-  {autoPoints()}
-  </Text>
+<View style={{alignItems: 'center'}} >
+ 
+  <View style = {styles.btnBox}>
+  <Pressable style={styles.button} onPress={() => {setIsEnabled(previousState => !previousState); tCommunity = !tCommunity}}>
+   {({pressed}) => (
+          <Text style={styles.text}>{pressed ? '              ' : 'Robot Parked'}</Text>
+        )}
+  </Pressable>
+<Text>{tCommunity ? 'on': 'Off'}</Text>
+
+  </View>
+  <View style = {styles.btnBox}>
+  <Pressable style={styles.button} onPress={() => {setIsEnabled(previousState => !previousState); tDock = !tDock}}>
+   {({pressed}) => (
+          <Text style={styles.text}>{pressed ? '            ' : 'Robot Docked'}</Text>
+        )}
+  </Pressable>
+<Text>{tDock ? 'on': 'Off'}</Text>
+
+  </View>
+  <View style = {styles.btnBox}>
+  <Pressable style={styles.button} onPress={() => {setIsEnabled(previousState => !previousState); tEngaged = !tEngaged}}>
+   {({pressed}) => (
+          <Text style={styles.text}>{pressed ? '            ' : 'Robot Engaged'}</Text>
+        )}
+  </Pressable>
+<Text>{tEngaged ? 'on': 'Off'}</Text>
+
+
+  </View>
+ 
+<View style={styles.btnBox}>
+<Pressable style={{flexDirection: 'row'}} onPress={() => {onChangeText(Values => Values);matchResult = Values;}}>
+
+        <TextInput
+            style={styles.Textinput}
+            onChangeText={Text => {onChangeText(Text);}}
+            value={Values}
+        />  
+        <Text style={styles.text}>Save</Text>
+        </Pressable>
+      
+</View>
+
+<View style={styles.btnBox}>
       <Pressable style={styles.button} onPress={() => navigation.push('Team2')}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
-  </View>
+        
+</View>
+        </View>
+
+
+);
+  }
+  const DATA = [
+    {
+      title: 'Main dishes',
+      data: ['Pizza', 'Burger', 'Risott'],
+    },
+    {
+      title: 'Sides',
+      data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
+    },
+    {
+      title: 'Drinks',
+      data: ['Water', 'Coke', 'Beer'],
+    },
+    {
+      title: 'Desserts',
+      data: ['Cheese Cake', 'Ice Cream'],
+    },
+  ];
   
-  )
+  
+
+
+  function Results({navigation}){
+return(
+<View>
+<View style={styles.container}>
+    <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({item}) => (
+        <View style={styles.item}>
+          <Text style={styles.title}>{item}</Text>
+        </View>
+      )}
+      renderSectionHeader={({section: {title}}) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+    />
+  </View>
+
+<View style={styles.btnBox}>
+      <Pressable style={styles.button} onPress={() => navigation.push('Team2')}>
+        <Text style={styles.text}>{"Back"}</Text>
+        </Pressable>
+        
+</View>
+        </View>
+
+);
   }
 
 
@@ -318,7 +418,7 @@ export default function App() {
     <Stack.Navigator initialRouteName="Home">
       <Stack.Screen name="Home" component={HomeScreen} />
     <Stack.Screen name="Team2" component={Matchselect}/>
-      <Stack.Screen name="Team" component={FlexDirectionBasics} />
+      <Stack.Screen name="Team" component={Results} />
       <Stack.Screen name="auto"component={Auto}/>
       <Stack.Screen name="teleOp"component={Tele}/>
       <Stack.Screen name="endGame"component={Endgame}/>
@@ -381,6 +481,12 @@ const styles = StyleSheet.create({
     padding: '20'
 
   },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+
   
 
   

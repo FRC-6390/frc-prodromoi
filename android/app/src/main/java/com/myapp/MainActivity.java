@@ -9,7 +9,7 @@ import com.facebook.react.ReactRootView;
 
 import expo.modules.ReactActivityDelegateWrapper;
 
-import android.os.Bundle;
+
 
 public class MainActivity extends ReactActivity {
   @Override
@@ -83,9 +83,9 @@ public class MainActivity extends ReactActivity {
     }
   }
 
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(null);
-  }
+  // @Override
+  // protected void onCreate(Bundle savedInstanceState) {
+  //   super.onCreate(null);
+  // }
 
 }
