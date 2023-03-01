@@ -124,7 +124,7 @@ function Submit() {
   }else{
     var name = data['team']+ "_" + data['match_type'] + "_" + data['match_number'];
     console.log(name)
-    saveMatch(data, name);
+    saveMatch("matches", name, data);
   }
   console.log(data)
 }
