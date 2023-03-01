@@ -1,18 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState} from 'react';
 import { StyleSheet, Text, Button, Alert,  View, Pressable, ScrollView, Switch, TextInput,SectionList } from 'react-native';
-import mainScreen from './Screens/Matches/MainScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 //import {Button1, navigatorScreen} from './Screens/Matches/Buttons';
-import {FlexDirectionBasics} from './Screens/Matches/MainScreen';
-import { Button1, navigatorScreen } from './Screens/Matches/Buttons';
-import {autoPoints} from './Screens/Matches/Matches';
+
 
 
 const Stack = createNativeStackNavigator();
 
-var AutoScore = 0;
+
 var TeleScore = 0;
 var aLowRung = 0;
 var aMidRung = 0;
@@ -27,9 +24,27 @@ var aDock = false;
 var aEngaged = false;
 var tDock = false;
 var tEngaged = false;
+var aCommunityp = 0;
+var tCommunityp = 0;
+var aDockp = 0;
+var aEngagedp = 0;
+var tDockp = 0;
+var tEngagedp = 0;
 var match = "Match type and #";
 var teamName = "Team Number/Name"
 var matchResult = "Match Result"
+var AutoScore = 0;
+
+function BooleanToInt(t,p){
+if(t == true){
+p = 1;
+
+}else{
+  p = 0;
+}
+return p
+
+}
 
  
 function HomeScreen({ navigation }) {
@@ -44,10 +59,7 @@ function HomeScreen({ navigation }) {
         <Text style={styles.text}>{"Results"}</Text>
         </Pressable>
 
-        <Pressable style={styles.button} onPress={() => navigation.navigate('Screener')}>
-          <Text style={styles.text}>{"Save (WIP)"}</Text>
 
-          </Pressable>
 
       
     </View>
@@ -79,7 +91,7 @@ function Matchselect({navigation}){
             onChangeText={text => {onchangetext(text);}}
             value={Value}
         />
-            <Text style={styles.text}>Sav</Text>
+            <Text style={styles.text}>Save</Text>
         </Pressable>
 
     </View>
@@ -93,7 +105,7 @@ function Matchselect({navigation}){
         <Pressable style={styles.button} onPress={() => navigation.push('endGame')}>
         <Text style={styles.text}>{"EndGame"}</Text>
         </Pressable>
-        <Pressable style={styles.button} onPress={() => navigation.push('Home')}>
+        <Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
 
@@ -193,7 +205,7 @@ function Auto({navigation}){
   
 
 <View style={styles.btnBox}>
-      <Pressable style={styles.button} onPress={() => navigation.push('Team2')}>
+<Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
         
@@ -284,7 +296,7 @@ function Tele({navigation}){
   </View>
 
 <View style={styles.btnBox}>
-      <Pressable style={styles.button} onPress={() => navigation.push('Team2')}>
+<Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
         
@@ -349,7 +361,7 @@ function Endgame({navigation}){
 </View>
 
 <View style={styles.btnBox}>
-      <Pressable style={styles.button} onPress={() => navigation.push('Team2')}>
+      <Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
         
@@ -359,48 +371,43 @@ function Endgame({navigation}){
 
 );
   }
+/*
   const DATA = [
     {
-      title: 'Main dishes',
-      data: ['Pizza', 'Burger', 'Risott'],
+      title: AutoScore,
+      data: [aLowRung, 'Burger', 'Risott'],
     },
     {
-      title: 'Sides',
+      title: ' -',
       data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
     },
     {
-      title: 'Drinks',
+      title: ' -',
       data: ['Water', 'Coke', 'Beer'],
     },
     {
-      title: 'Desserts',
+      title: ' -',
       data: ['Cheese Cake', 'Ice Cream'],
     },
   ];
   
-  
+  */
 
 
   function Results({navigation}){
+    aCommunityp = BooleanToInt(aCommunity,aCommunityp);
+    aDockp = BooleanToInt(aDock, aDockp);
+    AutoScore = aLowRung*3;
 return(
 <View>
-<View style={styles.container}>
-    <SectionList
-      sections={DATA}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({item}) => (
-        <View style={styles.item}>
-          <Text style={styles.title}>{item}</Text>
-        </View>
-      )}
-      renderSectionHeader={({section: {title}}) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
-    />
-  </View>
+  <Text style={styles.text}>Match:</Text>
+  <Text style={styles.text}></Text>
+  <Text style={styles.text}></Text>
+<Text style={styles.text}>AutoScore: {AutoScore}</Text>
+<Text style={styles.text}>LowRung score:</Text>
 
 <View style={styles.btnBox}>
-      <Pressable style={styles.button} onPress={() => navigation.push('Team2')}>
+<Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
         
