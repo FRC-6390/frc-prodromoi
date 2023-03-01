@@ -1,9 +1,16 @@
 import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { Color } from "../GlobalStyles";
+import Incrementor from "../components/Incrementor";
+import DropDownPicker from "react-native-dropdown-picker"
 
-const Home = ({navigation}) => {
-  return <View style={styles.viewConainer}/>;
+const Calculate = ({navigation}) => {
+  return (<View style={styles.viewConainer}> 
+  
+  
+  <Incrementor></Incrementor>
+  
+  </View>);
 };
 
 const styles = StyleSheet.create({
@@ -16,4 +23,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home;
+export default Calculate;

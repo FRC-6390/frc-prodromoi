@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, View } from "react-native";
 import { Color } from "../GlobalStyles";
 
-const Home = ({navigation}) => {
+const Sync = ({navigation}) => {
   return <View style={styles.viewConainer}/>;
 };
 
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Home;
+export default Sync;
