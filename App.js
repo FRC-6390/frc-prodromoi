@@ -402,8 +402,8 @@ function Endgame({navigation}){
     tCommunityp = BooleanToInt(tCommunity,tCommunityp);
     tDockp = BooleanToInt(tDock,tDockp);
     tEngagedp = BooleanToInt(tEngaged, tEngagedp);
-    AutoScore = aLowRung*3 + aCommunityp*3 + aMidRung*4 + aHighRung*6 ;
-    TeleScore = aLowRung*3;
+    AutoScore = aLowRung*3 + aCommunityp*3 + aMidRung*4 + aHighRung*6 + aDockp*6 + aEngagedp*8;
+    TeleScore =tLowRung*3 + tCommunityp*3 + tMidRung*4 + tHighRung*6 + tDockp*6 + tEngagedp*8;
     TotalScore = AutoScore + TeleScore;
 return(
 <View>
@@ -425,10 +425,10 @@ return(
   <Text style={styles.text}>Links Made: {Links}</Text>
   <Text style={styles.text}>---</Text>
   <Text style={styles.text}>matchResult: {matchResult}</Text>
-  <Text style={styles.text}>Left Community: {tCommunityp}</Text>
+  <Text style={styles.text}>Parked: {tCommunityp}</Text>
   <Text style={styles.text}>Dock on Charge station: {tDockp}</Text>
   <Text style={styles.text}>Engaged on Charge station: {tEngagedp}</Text>
-  <Text style={styles.text}>Total Score: </Text>
+  <Text style={styles.text}>Total Score: {TotalScore}</Text>
 
 <View style={styles.btnBox}>
   <Text style={styles.textend}>Upload to the Form before pressing below</Text>
