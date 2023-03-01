@@ -34,6 +34,7 @@ var match = "Match type and #";
 var teamName = "Team Number/Name"
 var matchResult = "Match Result"
 var AutoScore = 0;
+var TotalScore = 0;
 
 function BooleanToInt(t,p){
 if(t == true){
@@ -397,22 +398,62 @@ function Endgame({navigation}){
   function Results({navigation}){
     aCommunityp = BooleanToInt(aCommunity,aCommunityp);
     aDockp = BooleanToInt(aDock, aDockp);
-    AutoScore = aLowRung*3;
+    aEngagedp = BooleanToInt(aEngaged, aEngagedp);
+    tCommunityp = BooleanToInt(tCommunity,tCommunityp);
+    tDockp = BooleanToInt(tDock,tDockp);
+    tEngagedp = BooleanToInt(tEngaged, tEngagedp);
+    AutoScore = aLowRung*3 + aCommunityp*3 + aMidRung*4 + aHighRung*6 ;
+    TeleScore = aLowRung*3;
+    TotalScore = AutoScore + TeleScore;
 return(
 <View>
-  <Text style={styles.text}>Match:</Text>
-  <Text style={styles.text}></Text>
-  <Text style={styles.text}></Text>
+  <Text style={styles.text}>Match: {match}</Text>
+  <Text style={styles.text}>Team: {teamName}</Text>
+  <Text style={styles.text}>---</Text>
 <Text style={styles.text}>AutoScore: {AutoScore}</Text>
-<Text style={styles.text}>LowRung score:</Text>
+<Text style={styles.text}>Bottom row score: {aLowRung}</Text>
+  <Text style={styles.text}>Mid Row Score: {aMidRung}</Text>
+  <Text style={styles.text}>High Row Score: {aHighRung}</Text>
+  <Text style={styles.text}>Left Community: {aCommunityp}</Text>
+  <Text style={styles.text}>Dock on Charge station: {aDockp}</Text>
+  <Text style={styles.text}>Engaged on Charge station: {aEngagedp}</Text>
+  <Text style={styles.text}>---</Text>
+  <Text style={styles.text}>TeleScore: {TeleScore}</Text>
+<Text style={styles.text}>Bottom row score: {tLowRung}</Text>
+  <Text style={styles.text}>Mid Row Score: {tMidRung}</Text>
+  <Text style={styles.text}>High Row Score: {tHighRung}</Text>
+  <Text style={styles.text}>Links Made: {Links}</Text>
+  <Text style={styles.text}>---</Text>
+  <Text style={styles.text}>matchResult: {matchResult}</Text>
+  <Text style={styles.text}>Left Community: {tCommunityp}</Text>
+  <Text style={styles.text}>Dock on Charge station: {tDockp}</Text>
+  <Text style={styles.text}>Engaged on Charge station: {tEngagedp}</Text>
+  <Text style={styles.text}>Total Score: </Text>
 
 <View style={styles.btnBox}>
+  <Text style={styles.textend}>Upload to the Form before pressing below</Text>
+</View>
+
+  <View style={styles.btnBox}>
+  <Pressable style={styles.button} onPress={() => {TeleScore = 0;aLowRung = 0; aMidRung = 0; aHighRung = 0; tLowRung = 0; tMidRung = 0; tHighRung = 0; Links = 0; aCommunity = false; tCommunity = false; aDock = false; aEngaged = false; tDock = false; tEngaged = false; aCommunityp = 0; tCommunityp = 0; aDockp = 0; aEngagedp = 0; tDockp = 0; tEngagedp = 0; match = "Match type and #"; teamName = "Team Number/Name"; matchResult = "Match Result"; AutoScore = 0;}}>
+  {({pressed}) => (
+          <Text style={styles.text}>{pressed ? '            ' : 'Reset'}</Text>
+        )}
+        </Pressable>
+
+</View>
+
+<View style={styles.btnBox}>
+  
 <Pressable style={styles.button} onPress={() => navigation.goBack()}>
         <Text style={styles.text}>{"Back"}</Text>
         </Pressable>
         
 </View>
+
         </View>
+
+        
 
 );
   }
@@ -475,6 +516,13 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 22,
     lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 1.5,
+    color: 'black',
+  },
+  textend: {
+    fontSize: 26,
+    lineHeight: 23,
     fontWeight: 'bold',
     letterSpacing: 1.5,
     color: 'black',
