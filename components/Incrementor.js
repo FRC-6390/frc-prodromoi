@@ -3,12 +3,14 @@ import { StyleSheet, View, Pressable, Image, Text } from "react-native";
 import { Color, Margin, Border, FontSize, Padding } from "../GlobalStyles";
 
 
+
  
 
-const Incrementor = props => {
-  
-  const [value, setValue] = useState(0);
-
+const Incrementor = props => {  
+  const [value, setValue] = useState(NaN);
+  if(typeof props.value !== "undefined"){
+    if(value !== props.value[props.name]) setValue(props.value[props.name])
+  }
   return (
 
       <View style={styles.ml46}>

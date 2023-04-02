@@ -9,7 +9,7 @@ export async function apiRequest(endpoint){
     const netInfo = await NetInfo.fetch();
     return new Promise((resolve, reject) => {
         let request = new XMLHttpRequest();
-        let fileName = endpoint.replace(/[^a-z0-9]/ig, '');
+        let fileName = endpoint.replace(/[^a-z0-9]/ig, '')+".json";
         readFile("tba", fileName).then((data) => {if(netInfo.isConnected)sendRequest(data);else resolve(data)}).catch((reason) => reject(reason));
         function sendRequest(cache) {
             if(debug)console.log('Cache is', cache);

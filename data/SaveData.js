@@ -13,7 +13,7 @@ export const saveFile = async (folder, name, data) => {
 
     try{
         const json = JSON.stringify(data)
-        const fileUri = FileSystem.documentDirectory + folder+'/'+name+'.json';
+        const fileUri = FileSystem.documentDirectory + folder+'/'+name;
         console.log(fileUri)
         await FileSystem.writeAsStringAsync(fileUri, json);
         console.log('Data saved successfully');
@@ -22,11 +22,30 @@ export const saveFile = async (folder, name, data) => {
       }
 };
 
+export const deletFile = async (folder, name) => {
+  // requestWritePermission();
+   
+   const folderInfo = await FileSystem.getInfoAsync(FileSystem.documentDirectory + folder);
+
+   if (!folderInfo.exists) {
+       await FileSystem.makeDirectoryAsync(FileSystem.documentDirectory + folder);
+   }
+
+   try{
+       const fileUri = FileSystem.documentDirectory + folder+'/'+name;
+       console.log(fileUri)
+       await FileSystem.deleteAsync(fileUri);
+       console.log('Data deleted successfully');
+     } catch (error) { 
+       console.log('Error deleting data: ', error);
+     }
+};
+
 
 export const readFile = async (folder, name) => {
     // requestWritePermission();
      
-    const fileUri = FileSystem.documentDirectory + folder+'/'+name+'.json';
+    const fileUri = FileSystem.documentDirectory + folder+'/'+name;
     const folderInfo = await FileSystem.getInfoAsync(FileSystem.documentDirectory + folder);
 
     if (!folderInfo.exists) {
@@ -48,9 +67,10 @@ export const listMatches = async () => {
     try {
         const files = await listDirectory("matches")
         var data = [];
-        files.forEach(element => {
+        files.forEach(async (element) => {
+            var cont = await readFile("matches", element);
             var name = element.replace(".json", "").replace("_", " ").split(" ").map((word) => word.charAt(0).toUpperCase() +word.slice(1)).join(" ")
-            data.push({id: element, title: name })
+            data.push({id: element, title: name, content: cont })
         });
         console.log(data);
         return data;
@@ -62,7 +82,6 @@ export const listMatches = async () => {
 export const listDirectory = async (folder) => {
     try {
         const files = await FileSystem.readDirectoryAsync(FileSystem.documentDirectory +folder);
-        console.log(files);
         return files;
       } catch (error) { 
         console.error(error);
